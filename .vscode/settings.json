@@ -1,0 +1,9 @@
+{
+    "dotnet.defaultSolution": "Tomogachi-ESS_Spring2025.sln",
+    "files.exclude": {
+        "**/*.rpyc": true,
+        "**/*.rpa": true,
+        "**/*.rpymc": true,
+        "**/cache/": true
+    }
+}

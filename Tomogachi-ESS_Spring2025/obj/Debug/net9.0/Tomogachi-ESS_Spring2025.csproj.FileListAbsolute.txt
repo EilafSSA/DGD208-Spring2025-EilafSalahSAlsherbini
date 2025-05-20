@@ -1,0 +1,14 @@
+C:\Users\e2982\OneDrive\Desktop\DGD208-Spring2025-EilafSalahSAlsherbini\Tomogachi-ESS_Spring2025\bin\Debug\net9.0\Tomogachi-ESS_Spring2025.exe
+C:\Users\e2982\OneDrive\Desktop\DGD208-Spring2025-EilafSalahSAlsherbini\Tomogachi-ESS_Spring2025\bin\Debug\net9.0\Tomogachi-ESS_Spring2025.deps.json
+C:\Users\e2982\OneDrive\Desktop\DGD208-Spring2025-EilafSalahSAlsherbini\Tomogachi-ESS_Spring2025\bin\Debug\net9.0\Tomogachi-ESS_Spring2025.runtimeconfig.json
+C:\Users\e2982\OneDrive\Desktop\DGD208-Spring2025-EilafSalahSAlsherbini\Tomogachi-ESS_Spring2025\bin\Debug\net9.0\Tomogachi-ESS_Spring2025.dll
+C:\Users\e2982\OneDrive\Desktop\DGD208-Spring2025-EilafSalahSAlsherbini\Tomogachi-ESS_Spring2025\bin\Debug\net9.0\Tomogachi-ESS_Spring2025.pdb
+C:\Users\e2982\OneDrive\Desktop\DGD208-Spring2025-EilafSalahSAlsherbini\Tomogachi-ESS_Spring2025\obj\Debug\net9.0\Tomogachi-ESS_Spring2025.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\e2982\OneDrive\Desktop\DGD208-Spring2025-EilafSalahSAlsherbini\Tomogachi-ESS_Spring2025\obj\Debug\net9.0\Tomogachi-ESS_Spring2025.AssemblyInfoInputs.cache
+C:\Users\e2982\OneDrive\Desktop\DGD208-Spring2025-EilafSalahSAlsherbini\Tomogachi-ESS_Spring2025\obj\Debug\net9.0\Tomogachi-ESS_Spring2025.AssemblyInfo.cs
+C:\Users\e2982\OneDrive\Desktop\DGD208-Spring2025-EilafSalahSAlsherbini\Tomogachi-ESS_Spring2025\obj\Debug\net9.0\Tomogachi-ESS_Spring2025.csproj.CoreCompileInputs.cache
+C:\Users\e2982\OneDrive\Desktop\DGD208-Spring2025-EilafSalahSAlsherbini\Tomogachi-ESS_Spring2025\obj\Debug\net9.0\Tomogachi-ESS_Spring2025.dll
+C:\Users\e2982\OneDrive\Desktop\DGD208-Spring2025-EilafSalahSAlsherbini\Tomogachi-ESS_Spring2025\obj\Debug\net9.0\refint\Tomogachi-ESS_Spring2025.dll
+C:\Users\e2982\OneDrive\Desktop\DGD208-Spring2025-EilafSalahSAlsherbini\Tomogachi-ESS_Spring2025\obj\Debug\net9.0\Tomogachi-ESS_Spring2025.pdb
+C:\Users\e2982\OneDrive\Desktop\DGD208-Spring2025-EilafSalahSAlsherbini\Tomogachi-ESS_Spring2025\obj\Debug\net9.0\Tomogachi-ESS_Spring2025.genruntimeconfig.cache
+C:\Users\e2982\OneDrive\Desktop\DGD208-Spring2025-EilafSalahSAlsherbini\Tomogachi-ESS_Spring2025\obj\Debug\net9.0\ref\Tomogachi-ESS_Spring2025.dll
