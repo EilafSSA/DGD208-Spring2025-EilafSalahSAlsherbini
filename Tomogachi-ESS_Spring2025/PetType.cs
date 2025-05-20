@@ -1,8 +1,16 @@
-public enum PetType
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Tomogachi_ESS_Spring2025
 {
-    Dog,
-    Cat,
-    Bird,
-    Fish,
-    Rabbit
+        public enum PetType
+        {
+            Dog,
+            Cat,
+            Bird,
+            Fish,
+            Rabbit
+        }
 }
