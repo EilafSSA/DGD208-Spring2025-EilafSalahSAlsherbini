@@ -1,0 +1,194 @@
+fOUND THE ORIGINAL horray!
+
+The main plan for me for this 'tomogachi' project is to add the main things:
+
+(FYI what's written here isn't sent into AI, thank you)
+
+looking at the final project resources we all obtained:
+Game.cs - 
+Item.cs -
+ItemDataBase.cs -
+ItemType.cs-
+Menu.cs -
+PetStat.cs -
+PetType.cs
+__________
+[ what I want to add myself ]
+
+Ascii.cs - for my txt images to load through methods.
+
+
+______________________________________
+[1.] My Game class -
+looking at the resource, 
+
+it will initalize my program,
+be my main game loop -
+display the menu (the main can be in another .cs file sure)
+
+as well as, we will get the userInput and then place it to an async to process what the user choose.
+
+--------------------
+
+[2.] My Item Class -
+
+- over view! -
+{ get; set; }
+A get property accessor is used to return the property value, 
+and 
+a set property accessor is used to assign a new value.
+
+We want to get and set  a item's name, type, statistical effect, how much will it effect (amount), compatiblity, item cooldown (async)
+[Name]
+[ItemType]
+[CompatableWith]
+[AffectedStat]
+[EffectAmount]
+[Duration]
+
+--------------------
+
+[3.] My Item Data Base Class!! - 
+
+we are just using the statistics we set for ourselves :D!
+but as you can see we didnt really imply what is a food, or what a toy is to the computer,
+ we just said toy and food. So! We have to announce this to the enum
+ 
+(we can put this in the same class but this class will be lonnngggg, 
+so we put this in a proper .cs file on its own for clarity sakes.)
+
+
+
+examples for myself
+public static List<Item> AllItems = new List<Item>
+    {
+        // Foods
+        new Item { 
+            Name = "Kibble", 
+            Type = ItemType.Food, 
+            CompatibleWith = new List<PetType> { PetType.Dog }, 
+            AffectedStat = PetStat.Hunger, 
+            EffectAmount = 15,
+            Duration = 2.5f  // Takes 2.5 seconds to eat
+        }
+    }
+        // Toys
+        new Item { 
+            Name = "Tennis Ball", 
+            Type = ItemType.Toy, 
+            CompatibleWith = new List<PetType> { PetType.Dog }, 
+            AffectedStat = PetStat.Fun, 
+            EffectAmount = 20,
+            Duration = 4.0f  // Playing fetch takes time
+        }
+        // Universal foods, (for all animal types!)
+        // Universal Toys, (for all animal typesss)
+        // sleep Items!
+
+--------------------
+
+[4.] My Item types! (we use an enum) 
+
+public enum ItemType
+{
+    Food,
+    Toy
+}
+(shouldn't there be not a sleep item on its own? 
+I think thatd be important but it seens like its assigned with toys.)
+
+for exmaple!:
+ new Item { 
+            Name = "Comfy Bed", 
+            Type = ItemType.Toy, 
+            CompatibleWith = new List<PetType> { PetType.Dog, PetType.Cat }, 
+            AffectedStat = PetStat.Sleep, 
+            EffectAmount = 30,
+            Duration = 6.0f  // Takes time to fall
+ }
+
+ here is a sleep item used as just a itemType.Toy. So I guess combining them is fine
+
+
+--------------------
+
+[5.] The menu!!
+
+public class Menu<T>
+{
+    private readonly List<T> _items;
+    private readonly string _title;
+    private readonly Func<T, string> _displaySelector;
+
+   
+    public Menu(string title, List<T> items, Func<T, string> displaySelector)
+    {
+        _title = title;
+        _items = items ?? new List<T>();
+        _displaySelector = displaySelector ?? (item => item?.ToString() ?? "");
+    }
+
+
+
+    public T ShowAndGetSelection()
+    {
+        if (_items.Count == 0)
+        {
+            Console.WriteLine($"No items available in {_title}. Press any key to continue...");
+            Console.ReadKey();
+            return default;
+        }
+
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine($"=== {_title} ===");
+            Console.WriteLine();
+
+            // Display menu items with numbers
+            for (int i = 0; i < _items.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {_displaySelector(_items[i])}");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("0. Go Back");
+            Console.WriteLine();
+            Console.Write("Enter selection: ");
+
+            // Get user input
+            string input = Console.ReadLine();
+            
+            // Try to parse the input
+            if (int.TryParse(input, out int selection))
+            {
+                // Check for "Go Back" option
+                if (selection == 0)
+                    return default; // Return default value of T to indicate backing out
+                
+                // Check if selection is valid
+                if (selection > 0 && selection <= _items.Count)
+                {
+                    return _items[selection - 1];
+                }
+            }
+            
+            Console.WriteLine("Invalid selection. Press any key to try again.");
+            Console.ReadKey();
+        }
+    }
+}
+
+
+
+
+
+--------------------
+
+[6.] My Item types! (we use an enum) 
+
+public enum ItemType
+
+
+______________________________________
+

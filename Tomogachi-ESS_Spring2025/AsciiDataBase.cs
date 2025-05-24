@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+//As of now, this is unused, but ill be making whole art just for the ASCII, so this is what ill be doing for today.
 namespace Tomogachi_ESS_Spring2025
 {
     public class AsciiDataBase
@@ -17,18 +18,11 @@ namespace Tomogachi_ESS_Spring2025
             return HungryArt;
         else if (Sleep > 70)
             return SadArt;
-        else if (Fun > 70)
-            return HappyArt;
         else
             return NeutralArt;
     }
 
-    private string HappyArt = @"
-    (^_^)
-   (     )
-    /   \
-   Happy Pet!
-";
+
 
     private string SadArt = @"
     (T_T)
