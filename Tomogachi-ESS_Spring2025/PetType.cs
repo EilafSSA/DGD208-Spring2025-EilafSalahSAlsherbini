@@ -9,7 +9,7 @@ namespace Tomogachi_ESS_Spring2025
         {
             Dog,
             Cat,
-            Bird,
+            Parrot,
             Fish,
             Rabbit
         }

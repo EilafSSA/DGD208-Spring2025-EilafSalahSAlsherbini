@@ -8,12 +8,29 @@ namespace Tomogachi_ESS_Spring2025
     public static class ItemDatabase
     {
         public static List<Item> AllItems = new List<Item>
-        {
-            new Item { 
-                Name = "Kibble", 
-                Type = ItemType.Food, 
-                CompatibleWith = new List<PetType> { PetType.Dog }, 
-                AffectedStat = PetStat.Hunger, 
+        {   
+            //Foods
+            new Item {
+                Name = "Kibble",
+                Type = ItemType.Food,
+                CompatibleWith = new List<PetType> { PetType.Dog },
+                AffectedStat = PetStat.Hunger,
+                EffectAmount = 15,
+                Duration = 2.5f  // Takes 2.5 seconds to eat
+            },
+            new Item {
+                Name = "Seeds",
+                Type = ItemType.Food,
+                CompatibleWith = new List<PetType> { PetType.Parrot },
+                AffectedStat = PetStat.Hunger,
+                EffectAmount = 15,
+                Duration = 2.5f  // Takes 2.5 seconds to eat
+            },
+            new Item {
+                Name = "Wet *Fishy* Food",
+                Type = ItemType.Food,
+                CompatibleWith = new List<PetType> { PetType.Cat },
+                AffectedStat = PetStat.Hunger,
                 EffectAmount = 15,
                 Duration = 2.5f  // Takes 2.5 seconds to eat
             },

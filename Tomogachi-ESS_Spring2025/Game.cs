@@ -12,7 +12,6 @@ namespace Tomogachi_ESS_Spring2025
 
         public async Task GameLoop()
         {
-            Initialize();
             _isRunning = true;
 
             while (_isRunning)
@@ -59,11 +58,6 @@ namespace Tomogachi_ESS_Spring2025
             Console.WriteLine("Thanks for playing!");
         }
 
-        private void Initialize()
-        {
-            _pets.Add(new Pet("Buddy", PetType.Dog));
-        }
-
         private void CheckPets()
         {
             Console.Clear();
@@ -76,7 +70,6 @@ namespace Tomogachi_ESS_Spring2025
                 foreach (var pet in _pets)
                     pet.ShowStatus();
             }
-            Console.WriteLine(HappyArt);
             Console.WriteLine("\nPress any key to return...");
             Console.ReadKey();
         }
@@ -122,33 +115,7 @@ namespace Tomogachi_ESS_Spring2025
 
             return new Pet(name, selectedType);
         }
-    
-    static string HappyArt = @"
-                                                                                                                                                                  
-                             ███                                                    
-                            ████                                                    
-                          ███  ███                    █████                         
-                        █████      █████████████  ████   ██                         
-                       ███                      ████     ██                         
-                    ███                                  ██                         
-                   ███      ██              ██           ██                         
-                  ███       ██              ██           ██                         
-                 ███        ██              ██           ██                         
-                 ██                                      ██                         
-                 ██                                      ██       ████              
-                 ██                                     ███       ██ ██              
-                 ██                        ███          ███      ██   ██              
-          ████████             ███     ████            ██      ██   ██              
-                 █████            ███████              ███  ████  ███               
-               ███████                                 ███████████                 
-                     ███                             ████                           
-                       ████                             ███                         
-                        █████████████████              ███                         
-                       ██████████████    █████       ███                          
-                        ████████              █████████                            
-                                                                     
-                                                                                                                                                                
-";
+
     }
  }
 
