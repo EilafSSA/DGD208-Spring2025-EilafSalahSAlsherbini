@@ -1,12 +1,15 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Tomogachi_ESS_Spring2025
 {
     public class Game
-    {
+    { 
+        AsciiDataBase asciiArt = new AsciiDataBase();
         private bool _isRunning;
         private List<Pet> _pets = new();
 
@@ -23,6 +26,7 @@ namespace Tomogachi_ESS_Spring2025
                 Console.WriteLine("3. Adopt a New Pet");
                 Console.WriteLine("4. Exit");
                 Console.Write("\nChoose an option: ");
+                start();
                 string input = Console.ReadLine();
 
                 switch (input)
@@ -116,7 +120,26 @@ namespace Tomogachi_ESS_Spring2025
             return new Pet(name, selectedType);
         }
 
+        static async Task start()
+        {
+            AsciiDataBase asciiArt = new AsciiDataBase();
+            string dogFrame1 = asciiArt.GetAsciiArt(PetType.Dog, "Inbetween");
+            string dogFrame2 = asciiArt.GetAsciiArt(PetType.Dog, "FoodAnim1");
+            string dogFrame3 = asciiArt.GetAsciiArt(PetType.Dog, "FoodAnim2");
+
+            Console.Clear();
+            Console.WriteLine(dogFrame1);
+            Thread.Sleep(300);
+            Console.Clear();
+            Console.WriteLine(dogFrame2);
+            Thread.Sleep(300);
+            Console.Clear();
+            Console.WriteLine(dogFrame3);
+
+
+        }
     }
+
  }
 
 
