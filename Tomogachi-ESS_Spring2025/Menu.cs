@@ -11,12 +11,15 @@ namespace Tomogachi_ESS_Spring2025
             private readonly string _title;
             private readonly Func<T, string> _displaySelector;
 
+
+
             public Menu(string title, List<T> items, Func<T, string> displaySelector)
             {
                 _title = title;
                 _items = items ?? new List<T>();
                 _displaySelector = displaySelector ?? (item => item?.ToString() ?? "");
             }
+
 
             public T ShowAndGetSelection()
             {

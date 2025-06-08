@@ -27,10 +27,5 @@ namespace Tomogachi_ESS_Spring2025
         {
             _pets.Remove(pet);
         }
-
-        internal void Death()
-        {
-            Console.WriteLine("DEATH!");
-        }
     }
 }

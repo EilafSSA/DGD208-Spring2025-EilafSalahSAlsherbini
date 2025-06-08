@@ -42,6 +42,17 @@ namespace Tomogachi_ESS_Spring2025
                 EffectAmount = 15,
                 Duration = 2.5f  // Takes 2.5 seconds to eat
             },
+            new Item {
+                Name = "Lettuce",
+                Type = ItemType.Food,
+                CompatibleWith = new List<PetType> { PetType.Rabbit, PetType.Fish, PetType.Parrot },
+                AffectedStat = PetStat.Hunger,
+                EffectAmount = 15,
+                Duration = 2.5f  // Takes 2.5 seconds to eat
+            },
+
+
+
             // Universal Toys
             new Item {
                 Name = "Ball",

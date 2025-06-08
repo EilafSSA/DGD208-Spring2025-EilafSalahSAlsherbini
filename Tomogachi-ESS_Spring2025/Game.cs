@@ -82,6 +82,7 @@ namespace Tomogachi_ESS_Spring2025
             if (_pets.Count == 0)
             {
                 Console.WriteLine("You have no pets to interact with.");
+                Console.WriteLine("");
                 Console.ReadKey();
                 return;
             }
