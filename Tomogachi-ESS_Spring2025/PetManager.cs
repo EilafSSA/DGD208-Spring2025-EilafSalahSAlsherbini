@@ -9,19 +9,28 @@ namespace Tomogachi_ESS_Spring2025
     {
         private readonly List<Pet> _pets = new();
 
-    public void AddPet(Pet pet)
-    {
-        _pets.Add(pet);
-    }
+        public void AddPet(Pet pet)
+        {
+            _pets.Add(pet);
+        }
 
-    public List<Pet> GetAllPets()
-    {
-        return _pets;
-    }
+        public List<Pet> GetAllPets()
+        {
+            return _pets;
+        }
 
-    public Pet GetPetByName(string name)
-    {
-        return _pets.FirstOrDefault(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
-    }
+        public Pet GetPetByName(string name)
+        {
+            return _pets.FirstOrDefault(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+        }
+        public void Death(Pet pet)
+        {
+            _pets.Remove(pet);
+        }
+
+        internal void Death()
+        {
+            Console.WriteLine("DEATH!");
+        }
     }
 }

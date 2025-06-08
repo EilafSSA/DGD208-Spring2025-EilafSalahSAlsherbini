@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Tomogachi-ESS_Spring2025")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d0c95ab9111ff0ed3364fea620ecc2cc0fe63a42")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+345e28b2091d2a3803dbd55a85c29a5febf01ac1")]
 [assembly: System.Reflection.AssemblyProductAttribute("Tomogachi-ESS_Spring2025")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Tomogachi-ESS_Spring2025")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
