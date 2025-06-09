@@ -30,67 +30,28 @@ namespace Tomogachi_ESS_Spring2025
         }
 
         public void PetStatusASCII(Pet pet)
+        {
+            if (pet == null)
             {
-                if (pet == null)
-                {
-                    Console.WriteLine("No pet provided.");
-                    return;
-                }
-
-                AsciiDataBase ascii = new AsciiDataBase();
-
-                if (pet.IsFull || pet.IsHappy || pet.IsEnergized) //HAPPY!
-                {
-                    Console.WriteLine($"{pet.Name} is very Happy!");
-                    Console.WriteLine(pet.Type switch
-                    {
-                        PetType.Cat => ascii.GetAsciiArt(PetType.Cat, "Happy"),
-                        PetType.Dog => ascii.GetAsciiArt(PetType.Dog, "Happy"),
-                        PetType.Fish => ascii.GetAsciiArt(PetType.Fish, "Happy"),
-                        PetType.Parrot => ascii.GetAsciiArt(PetType.Parrot, "Happy"),
-                        _ => "*You hear your pet call out to you with eagerness*"
-                    });
-                }
-                else if (pet.IsFeed || pet.IsOkay || pet.IsFine) //NEUTRAL
-                {
-                    Console.WriteLine($"{pet.Name} is Fine");
-                    Console.WriteLine(pet.Type switch
-                    {
-                        PetType.Cat => ascii.GetAsciiArt(PetType.Cat, "Neutral"),
-                        PetType.Dog => ascii.GetAsciiArt(PetType.Dog, "Neutral"),
-                        PetType.Fish => ascii.GetAsciiArt(PetType.Fish, "Neutral"),
-                        PetType.Parrot => ascii.GetAsciiArt(PetType.Parrot, "Neutral"),
-                        _ => "*You hear your pet call out to you with eagerness*"
-                    });
-                }
-                else if (pet.IsHungry || pet.IsSad || pet.IsTired) //ANGRY
-                {
-                    Console.WriteLine($"{pet.Name} Needs attention!");
-                    Console.WriteLine(pet.Type switch
-                    {
-                        PetType.Cat => ascii.GetAsciiArt(PetType.Cat, "Angry"),
-                        PetType.Dog => ascii.GetAsciiArt(PetType.Dog, "Angry"),
-                        PetType.Fish => ascii.GetAsciiArt(PetType.Fish, "Angry"),
-                        PetType.Parrot => ascii.GetAsciiArt(PetType.Parrot, "Angry"),
-                        _ => "*You hear them call out to you with annoyance...*"
-                    });
-                }
-                else if (pet.IsStarving || pet.IsDepressed || pet.IsExhausted) //SAD
-                {
-                    Console.WriteLine($"{pet.Name} needs to be cared for!");
-                    Console.WriteLine(pet.Type switch
-                    {
-                        PetType.Cat => ascii.GetAsciiArt(PetType.Cat, "Sad"),
-                        PetType.Dog => ascii.GetAsciiArt(PetType.Dog, "Sad"),
-                        PetType.Fish => ascii.GetAsciiArt(PetType.Fish, "Sad"),
-                        PetType.Parrot => ascii.GetAsciiArt(PetType.Parrot, "Sad"),
-                        _ => "*...*"
-                    });
-                }
-                else
-                {
-                    Console.WriteLine($"{pet.Name}'s face is blank. You cannot tell their emotions- at all. (somehow)");
-                }
+                Console.WriteLine("No pet provided.");
+                return;
             }
+
+            AsciiDataBase ascii = new AsciiDataBase();
+
+            var mood = pet.GetMood();
+            Console.WriteLine($"{pet.Name} is feeling {mood}!");
+
+            string art = mood switch
+            {
+                PetMood.Happy => ascii.GetAsciiArt(pet.Type, "Happy"),
+                PetMood.Neutral => ascii.GetAsciiArt(pet.Type, "Neutral"),
+                PetMood.Angry => ascii.GetAsciiArt(pet.Type, "Angry"),
+                PetMood.Sad => ascii.GetAsciiArt(pet.Type, "Sad"),
+                _ => "*...*"
+            };
+
+            Console.WriteLine(art);
+        }
     }
 }

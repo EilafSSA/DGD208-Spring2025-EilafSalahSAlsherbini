@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,33 +15,21 @@ namespace Tomogachi_ESS_Spring2025
         private PetManager _manager;
 
 #region STATISTIC BOOLS
-        //------------------------------------------------- (HAPPY)
-        public bool IsFull => _hunger <= 100;
+    public PetMood GetMood()
+    {
+        if (_hunger <= 25 || _fun <= 25 || _sleep <= 25)
+            return PetMood.Sad;
 
-        public bool IsEnergized => _sleep <= 100;
+        if (_hunger <= 50 || _fun <= 50 || _sleep <= 50)
+            return PetMood.Angry;
 
-        public bool IsHappy => _fun <= 100;
+        if (_hunger <= 75 || _fun <= 75 || _sleep <= 75)
+            return PetMood.Neutral;
 
-//------------------------------------------------- (NEUTRAL)
-        public bool IsFeed => _hunger <= 75;
+        return PetMood.Happy;
+    }
 
-        public bool IsOkay => _sleep <= 75;
 
-        public bool IsFine => _fun <= 75;
-        
-//------------------------------------------ (ANGRY)
-        public bool IsHungry => _hunger <= 50;
-
-        public bool IsTired => _sleep <= 50;
-
-        public bool IsSad => _fun <= 50;
-
-//------------------------------------------ (SAD)
-        public bool IsStarving => _hunger <= 25;
-
-        public bool IsExhausted => _sleep <= 25;
-
-        public bool IsDepressed => _fun <= 25;
 
 #endregion
 
@@ -94,9 +83,9 @@ namespace Tomogachi_ESS_Spring2025
         {
             _ = Task.Run(async () =>
             {
-                while (_isAlive = true)
+                while (_isAlive)
                 {
-                    await Task.Delay(5000); // 5 seconds
+                    await Task.Delay(100);
 
                     _hunger = Math.Max(0, _hunger - 1);
                     _fun = Math.Max(0, _fun - 1);
@@ -107,14 +96,15 @@ namespace Tomogachi_ESS_Spring2025
             });
         }
 
+
         private void StatResult()
         {
             if (_fun == 0 || _hunger == 0 || _sleep == 0)
             {
                 _isAlive = false;
                 Console.WriteLine($"{Name} has died.");
-                _manager.Death(this); // Remove from pet list!! :D
-                return;
+                _manager.Death(this);
+
             }
         }
 

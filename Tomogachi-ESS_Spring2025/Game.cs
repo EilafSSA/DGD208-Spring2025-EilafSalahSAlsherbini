@@ -68,6 +68,7 @@ namespace Tomogachi_ESS_Spring2025
 
                     case "4":
                         Console.Clear();
+                        Console.Clear();
                         Console.WriteLine(@"
                         
 Hello!, This is Eilaf Salah S. Alsherbini, I hope my project meets you well.
@@ -131,6 +132,11 @@ ________________________________________________________________________________
         private void CheckPets()
         {
             Console.Clear();
+            Console.Clear();
+            Console.Clear();
+            Console.Clear();
+            Console.Clear();
+            Console.Clear();
             if (_pets.Count == 0)
             {
                 Console.WriteLine("You have no pets.");
@@ -139,6 +145,7 @@ ________________________________________________________________________________
             {
                 foreach (var pet in _pets)
                 {
+                    Console.Clear();
                     pet.ShowStatus();
                     petManager.PetStatusASCII(pet);  // << call here for each pet
                 }
