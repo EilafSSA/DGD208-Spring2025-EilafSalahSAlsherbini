@@ -71,45 +71,60 @@ namespace Tomogachi_ESS_Spring2025
                         Console.Clear();
                         Console.WriteLine(@"
                         
-Hello!, This is Eilaf Salah S. Alsherbini, I hope my project meets you well.
 
-Student ID: 2305045032
 
+★ Hello!, This is Eilaf Salah S. Alsherbini, I hope my project meets you well. ★
+
+✦ Student ID: 2305045032 ✦
+
+Tomogachi Spring Final of 2025 in DGD208 - Game Programing 2
+
+
+
+✦✦✦ (this is a long credit list so be sure to scroll) ✦✦✦
 ___________________________________________
+
+✦ EXTRA NOTES ✦ 
+> There are images of what the sprites are in the files actually in a folder called 'Original drawings of sprites'
+
+> Inside of my Github Commits are my notes when I was programming as well as a txt file called 'Basic planning I.txt'
+___________________________________________
+
              _    _      _       
             | |  (_)_ _ | |__ ___
             | |__| | ' \| / /(_-<
             |____|_|_||_|_\_\/__/
                     
 
-All ASCII art is drawn/animated by me (in procreate), 
-=> then put through [https://www.asciiart.eu/image-to-ascii] then cleaned them up throughly.
+★ All ASCII art is drawn/animated by me (in procreate), 
+    => then put through [https://www.asciiart.eu/image-to-ascii] then cleaned them up throughly.
 
 ASCII text was made through: [ patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20 ]
 ___________________________________________
 
-> The use of AI was needed (sadly) [ChatGPT]
+★ The use of AI was needed (sadly) [ChatGPT]
 ___________________________________________
 
-Alot of the microsoft guides for C# was really important for me, 
-especially when needing to remember things again.
-^
-(In order of links- 
-Contructors, Dictionaries, classes)
-===================================                      
-=> [ https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constructors ]
-=> [ https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-9.0 ]
-=> [ https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/classes ] 
+★ A lot of the microsoft guides for C# was really important for me, 
+    especially when needing to remember things again.
+    ^
+    (In order of links- 
+    Contructors, Dictionaries, classes)
+    ===================================                      
+    => [ https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constructors ]
+    => [ https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-9.0 ]
+    => [ https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/classes ] 
 ___________________________________________
 
-This github repo I found, by Nilvisa in 2015, [ https://github.com/nilvisa/tamagotchi ]
+★ This github repo I found, by Nilvisa in 2015, [ https://github.com/nilvisa/tamagotchi ]
 
-(It didn't help much for it felt important to credit cause it pushed me to want to finish this project at the start)
+    (It didn't help much for it felt important to credit cause it pushed me to want to finish this project at the start)
+
+___________________________________________
+
+★★★ [I hope you had a good Bayram Professor.] ★★★
 
 ______________________________________________________________________________________
-
-* [I hope you had a good Bayram Professor.] *
-
 
                         ");
                         Console.WriteLine("\n★ Press any key to return... ★");
@@ -164,31 +179,33 @@ ________________________________________________________________________________
                 return;
             }
 
+
             var petMenu = new Menu<Pet>(" Select a Pet ", _pets, p => p.Name);
             var selectedPet = petMenu.ShowAndGetSelection();
             if (selectedPet == null) return;
 
-            // Split compatible items into three categories
+
             var compatibleItems = ItemDatabase.AllItems
                 .Where(item => item.CompatibleWith.Contains(selectedPet.Type))
                 .ToList();
+
 
             var foodItems = compatibleItems.Where(i => i.Type == ItemType.Food).ToList();
             var toyItems = compatibleItems.Where(i => i.Type == ItemType.Toy).ToList();
             var bedItems = compatibleItems.Where(i => i.Type == ItemType.Bed).ToList();
 
-            // Let the player choose the category
+
             var categoryMenu = new Menu<string>(" Select Item Category ", new List<string> { "Food", "Toy", "Bed" }, s => s);
             var selectedCategory = categoryMenu.ShowAndGetSelection();
             if (selectedCategory == null) return;
 
+
             List<Item> categoryItems = selectedCategory switch
-            {
-                "Food" => foodItems,
+            {   "Food" => foodItems,
                 "Toy" => toyItems,
                 "Bed" => bedItems,
-                _ => new List<Item>()
-            };
+                _ => new List<Item>() };
+
 
             if (categoryItems.Count == 0)
             {

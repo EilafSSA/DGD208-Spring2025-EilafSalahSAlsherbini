@@ -33,14 +33,14 @@ namespace Tomogachi_ESS_Spring2025
         {
             if (pet == null)
             {
-                Console.WriteLine("No pet provided.");
+                Console.WriteLine("★✩★ No pet provided. ★✩★");
                 return;
             }
 
             AsciiDataBase ascii = new AsciiDataBase();
 
             var mood = pet.GetMood();
-            Console.WriteLine($"{pet.Name} is feeling {mood}!");
+            Console.WriteLine($"★✩★ {pet.Name} is feeling {mood}! ★✩★");
 
             string art = mood switch
             {

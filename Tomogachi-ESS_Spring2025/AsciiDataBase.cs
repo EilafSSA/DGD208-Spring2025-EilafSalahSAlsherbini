@@ -9,9 +9,9 @@ namespace Tomogachi_ESS_Spring2025
   {
       private readonly Dictionary<PetType, Dictionary<string, string>> _asciiArt;
 
-      public AsciiDataBase()
-      {
-          _asciiArt = new Dictionary<PetType, Dictionary<string, string>>
+    public AsciiDataBase()
+    {
+      _asciiArt = new Dictionary<PetType, Dictionary<string, string>>
           {
 #region OLD DOG SPRITES 
             { PetType.Dog, new Dictionary<string, string>
@@ -237,7 +237,7 @@ namespace Tomogachi_ESS_Spring2025
         o  ███             █   █  ██ ██  ███         
             ███████  o    █ ██████    █  ██         
                  ████████████          ██          " },
-                 
+
                  { "Anrgy", @"
                                                                                                    
                 ████████████                      
@@ -758,12 +758,11 @@ ZZZZ    ██                 █        █  █      ██
                    █████         ██                "}
             }
                     }
-                
-            };
-        }
+        #endregion //Why is this region not working so randomly :sob:, Hopefully it'll work???
 
-    
-    #endregion //Why is this region not working so randomly :sob:, Hopefully it'll work???
+      };
+
+    }
 
     public string GetAsciiArt(PetType type, string mood)
     {
