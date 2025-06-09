@@ -10,6 +10,7 @@ namespace Tomogachi_ESS_Spring2025
     public class Game
     {
         AsciiDataBase asciiArt = new AsciiDataBase();
+        PetManager petManager = new PetManager();
         private bool _isRunning;
         private List<Pet> _pets = new();
 
@@ -20,18 +21,34 @@ namespace Tomogachi_ESS_Spring2025
             while (_isRunning)
             {
                 Console.Clear();
-                Console.WriteLine("=== Pet Home ===\n");
+                Console.WriteLine(@"
+
+                          ! WELCOME !
+            _____ _____ _________  _____  ____  ____ 
+            || T  || O |||       ||| T ||| H ||| E ||
+            |/___\|/___\|/_______\|/___\|/___\|/___\|
+
+ __ __|  _ \    \  |   _ \    ___|     \      ___|  |   | _ _| 
+    |   |   |  |\/ |  |   |  |        _ \    |      |   |   |  
+    |   |   |  |   |  |   |  |   |   ___ \   |      ___ |   |  
+   _|  \___/  _|  _| \___/  \____| _/    _\ \____| _|  _| ___| HUB!                       
+                
+                
+                ");
                 Console.WriteLine("1. Check Pets");
                 Console.WriteLine("2. Interact with a Pet");
                 Console.WriteLine("3. Adopt a New Pet");
-                Console.WriteLine("4. Exit");
+                Console.WriteLine("4. Credits!");
+                Console.WriteLine("5. Exit");
                 Console.Write("\nChoose an option: ");
                 string input = Console.ReadLine();
 
                 switch (input)
                 {
                     case "1":
+
                         CheckPets();
+
                         break;
                     case "2":
                         await InteractWithPet();
@@ -48,7 +65,57 @@ namespace Tomogachi_ESS_Spring2025
                             if (newPet != null) _pets.Add(newPet);
                         }
                         break;
+
                     case "4":
+                        Console.Clear();
+                        Console.WriteLine(@"
+                        
+Hello!, This is Eilaf Salah S. Alsherbini, I hope my project meets you well.
+
+Student ID: 2305045032
+
+___________________________________________
+             _    _      _       
+            | |  (_)_ _ | |__ ___
+            | |__| | ' \| / /(_-<
+            |____|_|_||_|_\_\/__/
+                    
+
+All ASCII art is drawn/animated by me (in procreate), 
+=> then put through [https://www.asciiart.eu/image-to-ascii] then cleaned them up throughly.
+
+ASCII text was made through: [ patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20 ]
+___________________________________________
+
+> The use of AI was needed (sadly) [ChatGPT]
+___________________________________________
+
+Alot of the microsoft guides for C# was really important for me, 
+especially when needing to remember things again.
+^
+(In order of links- 
+Contructors, Dictionaries, classes)
+===================================                      
+=> [ https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constructors ]
+=> [ https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-9.0 ]
+=> [ https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/classes ] 
+___________________________________________
+
+This github repo I found, by Nilvisa in 2015, [ https://github.com/nilvisa/tamagotchi ]
+
+(It didn't help much for it felt important to credit cause it pushed me to want to finish this project at the start)
+
+______________________________________________________________________________________
+
+* [I hope you had a good Bayram Professor.] *
+
+
+                        ");
+                        Console.WriteLine("\nPress any key to return...");
+                        Console.ReadKey();
+                        break;
+
+                    case "5":
                         _isRunning = false;
                         break;
                     default:
@@ -71,8 +138,12 @@ namespace Tomogachi_ESS_Spring2025
             else
             {
                 foreach (var pet in _pets)
+                {
                     pet.ShowStatus();
+                    petManager.PetStatusASCII(pet);  // << call here for each pet
+                }
             }
+
             Console.WriteLine("\nPress any key to return...");
             Console.ReadKey();
         }
@@ -81,25 +152,34 @@ namespace Tomogachi_ESS_Spring2025
         {
             if (_pets.Count == 0)
             {
-                Console.WriteLine("You have no pets to interact with.");
+                Console.WriteLine(" You have no pets to interact with. ");
                 Console.WriteLine("");
                 Console.ReadKey();
                 return;
             }
 
-            var petMenu = new Menu<Pet>("Select a Pet", _pets, p => p.Name);
+            var petMenu = new Menu<Pet>(" Select a Pet ", _pets, p => p.Name);
+
+
             var selectedPet = petMenu.ShowAndGetSelection();
             if (selectedPet == null) return;
+
 
             var compatibleItems = ItemDatabase.AllItems
                 .Where(item => item.CompatibleWith.Contains(selectedPet.Type))
                 .ToList();
+            
 
-            var itemMenu = new Menu<Item>("Select Item", compatibleItems, i => i.Name);
+            var itemMenu = new Menu<Item>(" Select Item ", compatibleItems, i => i.Name);
+
+
             var selectedItem = itemMenu.ShowAndGetSelection();
             if (selectedItem == null) return;
 
             await selectedPet.UseItemAsync(selectedItem);
+
+            var Credits = new Menu<Item>("! The Credits !", null, i => i.Name);
+
             Console.WriteLine();
             Console.WriteLine("\nPress any key to return...");
             Console.ReadKey();
@@ -108,7 +188,7 @@ namespace Tomogachi_ESS_Spring2025
         private Pet CreatePet()
         {
             Console.Clear();
-            Console.Write("Enter a name for your new pet: ");
+            Console.Write(" Enter a name for your new pet:  ");
             string name = Console.ReadLine();
 
             var types = Enum.GetValues(typeof(PetType)).Cast<PetType>().ToList();
@@ -117,7 +197,6 @@ namespace Tomogachi_ESS_Spring2025
 
             if (selectedType == default) return null;
 
-            PetManager petManager = new PetManager();
             return new Pet(name, selectedType, petManager);
         }
     

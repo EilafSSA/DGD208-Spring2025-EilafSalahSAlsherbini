@@ -11,6 +11,8 @@ namespace Tomogachi_ESS_Spring2025
         {
             var game = new Game();
             await game.GameLoop();
+            
         }
     }
+    
 }

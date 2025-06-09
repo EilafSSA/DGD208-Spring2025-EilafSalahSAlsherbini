@@ -12,6 +12,39 @@ namespace Tomogachi_ESS_Spring2025
         private int _hunger = 75, _fun = 75, _sleep = 75;
         private bool _isAlive = true;
         private PetManager _manager;
+
+#region STATISTIC BOOLS
+        //------------------------------------------------- (HAPPY)
+        public bool IsFull => _hunger <= 100;
+
+        public bool IsEnergized => _sleep <= 100;
+
+        public bool IsHappy => _fun <= 100;
+
+//------------------------------------------------- (NEUTRAL)
+        public bool IsFeed => _hunger <= 75;
+
+        public bool IsOkay => _sleep <= 75;
+
+        public bool IsFine => _fun <= 75;
+        
+//------------------------------------------ (ANGRY)
+        public bool IsHungry => _hunger <= 50;
+
+        public bool IsTired => _sleep <= 50;
+
+        public bool IsSad => _fun <= 50;
+
+//------------------------------------------ (SAD)
+        public bool IsStarving => _hunger <= 25;
+
+        public bool IsExhausted => _sleep <= 25;
+
+        public bool IsDepressed => _fun <= 25;
+
+#endregion
+
+
         public Pet(string name, PetType type, PetManager manager)
         {
             Name = name;
@@ -26,10 +59,11 @@ namespace Tomogachi_ESS_Spring2025
             Console.WriteLine($"\n--- {Name} the {Type} ---");
             Console.WriteLine($"Hunger: {_hunger}/100");
             Console.WriteLine($"Fun: {_fun}/100");
-            Console.WriteLine($"Sleep: {_sleep}/100");
-        }
+            Console.WriteLine($"Sleep: {_sleep}/100"); }
+
 
         public bool CanUseItem(Item item) => item.CompatibleWith.Contains(Type);
+
 
         public async Task UseItemAsync(Item item)
         {
@@ -38,7 +72,7 @@ namespace Tomogachi_ESS_Spring2025
                 Console.WriteLine($"{Name} can't use {item.Name}.");
                 return;
             }
-            
+
             Console.Clear();
             Console.WriteLine($"\nUsing {item.Name} on {Name}...");
             DisplayAsciiEvent(item);
@@ -50,6 +84,8 @@ namespace Tomogachi_ESS_Spring2025
                 case PetStat.Fun: _fun = Math.Min(100, _fun + item.EffectAmount); break;
                 case PetStat.Sleep: _sleep = Math.Min(100, _sleep + item.EffectAmount); break;
             }
+
+
 
             Console.WriteLine($"{item.Name} used! {item.AffectedStat} increased by {item.EffectAmount}.");
         }
@@ -77,7 +113,7 @@ namespace Tomogachi_ESS_Spring2025
             {
                 _isAlive = false;
                 Console.WriteLine($"{Name} has died.");
-                _manager.Death(this); // Remove from pet list
+                _manager.Death(this); // Remove from pet list!! :D
                 return;
             }
         }
@@ -96,7 +132,6 @@ namespace Tomogachi_ESS_Spring2025
                     PetType.Dog => anim.DogFeedingAnim(),
                     PetType.Fish => anim.FishFeedingAnim(),
                     PetType.Parrot => anim.ParrotFeedingAnim(),
-                    _ => "*nom nom*"
                 });
             }
 
@@ -109,7 +144,6 @@ namespace Tomogachi_ESS_Spring2025
                     PetType.Dog => anim.DogPlay(),
                     PetType.Fish => anim.FishPlay(),
                     PetType.Parrot => anim.ParrotPlay(),
-                    _ => "*Fun! Fun!*"
                 });
             }
 
@@ -122,7 +156,6 @@ namespace Tomogachi_ESS_Spring2025
                     PetType.Dog => anim.DogSleep(),
                     PetType.Fish => anim.FishSleep(),
                     PetType.Parrot => anim.ParrotSleep(),
-                    _ => "*Zzzzz....*"
                 });
             }
         }

@@ -40,10 +40,14 @@ namespace Tomogachi_ESS_Spring2025
         public async Task DogPlay()
         { string DogPlay = asciiArt.GetAsciiArt(PetType.Dog, "Playing");
             Console.WriteLine(DogPlay);}
-        
+
         #endregion
 
         #region ---(Feeding Animation)---
+
+//Eilaf Note:
+//I really Should of made it nicer, but its a mess now. I wish I made it more automated but it really boggled my head on how to do it
+//and not crash at the same time, apologies for the messiness.
 
         public async Task ParrotFeedingAnim()
         {
