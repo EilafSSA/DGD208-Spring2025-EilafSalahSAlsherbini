@@ -112,7 +112,7 @@ ________________________________________________________________________________
 
 
                         ");
-                        Console.WriteLine("\nPress any key to return...");
+                        Console.WriteLine("\n★ Press any key to return... ★");
                         Console.ReadKey();
                         break;
 
@@ -136,7 +136,6 @@ ________________________________________________________________________________
             Console.Clear();
             Console.Clear();
             Console.Clear();
-            Console.Clear();
             if (_pets.Count == 0)
             {
                 Console.WriteLine("You have no pets.");
@@ -151,7 +150,7 @@ ________________________________________________________________________________
                 }
             }
 
-            Console.WriteLine("\nPress any key to return...");
+            Console.WriteLine("\n★ Press any key to return... ★");
             Console.ReadKey();
         }
 
@@ -166,29 +165,46 @@ ________________________________________________________________________________
             }
 
             var petMenu = new Menu<Pet>(" Select a Pet ", _pets, p => p.Name);
-
-
             var selectedPet = petMenu.ShowAndGetSelection();
             if (selectedPet == null) return;
 
-
+            // Split compatible items into three categories
             var compatibleItems = ItemDatabase.AllItems
                 .Where(item => item.CompatibleWith.Contains(selectedPet.Type))
                 .ToList();
-            
 
-            var itemMenu = new Menu<Item>(" Select Item ", compatibleItems, i => i.Name);
+            var foodItems = compatibleItems.Where(i => i.Type == ItemType.Food).ToList();
+            var toyItems = compatibleItems.Where(i => i.Type == ItemType.Toy).ToList();
+            var bedItems = compatibleItems.Where(i => i.Type == ItemType.Bed).ToList();
 
+            // Let the player choose the category
+            var categoryMenu = new Menu<string>(" Select Item Category ", new List<string> { "Food", "Toy", "Bed" }, s => s);
+            var selectedCategory = categoryMenu.ShowAndGetSelection();
+            if (selectedCategory == null) return;
 
+            List<Item> categoryItems = selectedCategory switch
+            {
+                "Food" => foodItems,
+                "Toy" => toyItems,
+                "Bed" => bedItems,
+                _ => new List<Item>()
+            };
+
+            if (categoryItems.Count == 0)
+            {
+                Console.WriteLine($"No {selectedCategory} items available for this pet.");
+                Console.ReadKey();
+                return;
+            }
+
+            var itemMenu = new Menu<Item>($" Select {selectedCategory} Item ", categoryItems, i => i.Name);
             var selectedItem = itemMenu.ShowAndGetSelection();
             if (selectedItem == null) return;
 
             await selectedPet.UseItemAsync(selectedItem);
 
-            var Credits = new Menu<Item>("! The Credits !", null, i => i.Name);
-
             Console.WriteLine();
-            Console.WriteLine("\nPress any key to return...");
+            Console.WriteLine("\n★ Press any key to return... ★");
             Console.ReadKey();
         }
 

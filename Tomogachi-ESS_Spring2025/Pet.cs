@@ -10,29 +10,23 @@ namespace Tomogachi_ESS_Spring2025
     {   
         public string Name { get; }
         public PetType Type { get; }
-        private int _hunger = 75, _fun = 75, _sleep = 75;
+        private int _hunger = 50, _fun = 50, _sleep = 50;
         private bool _isAlive = true;
         private PetManager _manager;
 
-#region STATISTIC BOOLS
     public PetMood GetMood()
     {
-        if (_hunger <= 25 || _fun <= 25 || _sleep <= 25)
+        if (_hunger <= 15 || _fun <= 15 || _sleep <= 15)
             return PetMood.Sad;
 
-        if (_hunger <= 50 || _fun <= 50 || _sleep <= 50)
+        if (_hunger <= 35 || _fun <= 35 || _sleep <= 35)
             return PetMood.Angry;
 
-        if (_hunger <= 75 || _fun <= 75 || _sleep <= 75)
+        if (_hunger <= 45 || _fun <= 45 || _sleep <= 45)
             return PetMood.Neutral;
 
         return PetMood.Happy;
     }
-
-
-
-#endregion
-
 
         public Pet(string name, PetType type, PetManager manager)
         {
@@ -85,7 +79,7 @@ namespace Tomogachi_ESS_Spring2025
             {
                 while (_isAlive)
                 {
-                    await Task.Delay(100);
+                    await Task.Delay(5000);
 
                     _hunger = Math.Max(0, _hunger - 1);
                     _fun = Math.Max(0, _fun - 1);

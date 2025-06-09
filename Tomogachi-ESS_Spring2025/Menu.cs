@@ -48,7 +48,7 @@ namespace Tomogachi_ESS_Spring2025
                         if (sel > 0 && sel <= _items.Count) return _items[sel - 1];
                     }
 
-                    Console.WriteLine("Invalid. Press any key to try again.");
+                    Console.WriteLine("✩ Invalid ✩. ★ Press any key to try again.★");
                     Console.ReadKey();
                 }
             }

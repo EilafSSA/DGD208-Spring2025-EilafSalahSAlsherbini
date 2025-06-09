@@ -73,7 +73,7 @@ namespace Tomogachi_ESS_Spring2025
                 Duration = 1f  // Takes 1 seconds to eat
             },
             new Item {
-                Name = " Egg ",
+                Name = "Egg ",
                 Type = ItemType.Food,
                 CompatibleWith = new List<PetType> {  PetType.Cat, PetType.Dog },
                 AffectedStat = PetStat.Hunger,
@@ -81,7 +81,7 @@ namespace Tomogachi_ESS_Spring2025
                 Duration = 1f  // Takes 1 seconds to eat
             },
             new Item {
-                Name = " Nuts ",
+                Name = "Nuts ",
                 Type = ItemType.Food,
                 CompatibleWith = new List<PetType> {  PetType.Parrot, },
                 AffectedStat = PetStat.Hunger,
@@ -96,7 +96,7 @@ namespace Tomogachi_ESS_Spring2025
 
             // Universal Food
             new Item {
-                Name = " Broccoli ",
+                Name = "Broccoli ",
                 Type = ItemType.Food,
                 CompatibleWith = new List<PetType> {  PetType.Fish, PetType.Parrot, PetType.Dog, PetType.Cat},
                 AffectedStat = PetStat.Hunger,
@@ -104,7 +104,7 @@ namespace Tomogachi_ESS_Spring2025
                 Duration = 2.5f  // Takes 2.5 seconds to eat
             },
             new Item {
-                Name = " a few Cooked Shrimp ",
+                Name = "a few Cooked Shrimp ",
                 Type = ItemType.Food,
                 CompatibleWith = new List<PetType> {  PetType.Fish, PetType.Parrot, PetType.Dog, PetType.Cat},
                 AffectedStat = PetStat.Hunger,
@@ -112,7 +112,7 @@ namespace Tomogachi_ESS_Spring2025
                 Duration = 1f  // Takes 1 seconds to eat
             },
             new Item {
-                Name = " Veggies ",
+                Name = "Veggies ",
                 Type = ItemType.Food,
                 CompatibleWith = new List<PetType> {  PetType.Fish, PetType.Parrot, PetType.Dog, PetType.Cat},
                 AffectedStat = PetStat.Hunger,
@@ -132,7 +132,7 @@ namespace Tomogachi_ESS_Spring2025
                 Duration = 2.0f
             },
             new Item {
-                Name = " Feather on a Stick ",
+                Name = "Feather on a Stick ",
                 Type = ItemType.Toy,
                 CompatibleWith = new List<PetType> { PetType.Cat },
                 AffectedStat = PetStat.Fun,
@@ -140,7 +140,7 @@ namespace Tomogachi_ESS_Spring2025
                 Duration = 2.0f
             },
             new Item {
-                Name = " Chase with your Finger ",
+                Name = "Chase with your Finger ",
                 Type = ItemType.Toy,
                 CompatibleWith = new List<PetType> { PetType.Fish },
                 AffectedStat = PetStat.Fun,
@@ -148,7 +148,7 @@ namespace Tomogachi_ESS_Spring2025
                 Duration = 6f
             },
             new Item {
-                Name = " take on a Walk ",
+                Name = "take on a Walk ",
                 Type = ItemType.Toy,
                 CompatibleWith = new List<PetType> { PetType.Dog, PetType.Cat },
                 AffectedStat = PetStat.Fun,
@@ -156,9 +156,17 @@ namespace Tomogachi_ESS_Spring2025
                 Duration = 10f
             },
             new Item {
-                Name = " Teach Tricks ",
+                Name = "Teach Tricks ",
                 Type = ItemType.Toy,
                 CompatibleWith = new List<PetType> { PetType.Dog, PetType.Cat, PetType.Parrot, PetType.Fish },
+                AffectedStat = PetStat.Fun,
+                EffectAmount = 55,
+                Duration = 10f
+            },
+            new Item {
+                Name = "Let out to fly ",
+                Type = ItemType.Toy,
+                CompatibleWith = new List<PetType> {PetType.Parrot },
                 AffectedStat = PetStat.Fun,
                 EffectAmount = 55,
                 Duration = 10f
@@ -177,6 +185,22 @@ namespace Tomogachi_ESS_Spring2025
                 Name = "Pet Blanket", 
                 Type = ItemType.Bed, 
                 CompatibleWith = new List<PetType> { PetType.Dog, PetType.Cat }, 
+                AffectedStat = PetStat.Sleep, 
+                EffectAmount = 20,
+                Duration = 4.0f
+            },
+            new Item { 
+                Name = "Grassy Bed", 
+                Type = ItemType.Bed, 
+                CompatibleWith = new List<PetType> { PetType.Parrot, PetType.Fish }, 
+                AffectedStat = PetStat.Sleep, 
+                EffectAmount = 30,
+                Duration = 6.0f
+            },
+            new Item { 
+                Name = "Cozy den", 
+                Type = ItemType.Bed, 
+                CompatibleWith = new List<PetType> { PetType.Parrot, PetType.Fish }, 
                 AffectedStat = PetStat.Sleep, 
                 EffectAmount = 20,
                 Duration = 4.0f
