@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Tomogachi_ESS_Spring2025
 {
     public class Game
-    { 
+    {
         AsciiDataBase asciiArt = new AsciiDataBase();
         private bool _isRunning;
         private List<Pet> _pets = new();
@@ -103,7 +103,25 @@ namespace Tomogachi_ESS_Spring2025
             Console.WriteLine();
             Console.WriteLine("\nPress any key to return...");
             Console.ReadKey();
+
+            //---------------------------------(selected pet is limited to here, so I gotta place my animation methods in this method)----
+
+            #region ANIMATIONS
+
+            string mood = "Happy";
+            string art = asciiArt.GetAsciiArt(selectedPet.Type, mood);
+            Console.WriteLine(art);
+
+            string PetInbetween = asciiArt.GetAsciiArt(selectedPet.Type, "Inbetween");
+            string PetFoodAnim1 = asciiArt.GetAsciiArt(selectedPet.Type, "FoodAnim1");
+            string PetFoodAnim2 = asciiArt.GetAsciiArt(selectedPet.Type, "FoodAnim2");
+
+            Console.WriteLine(PetFoodAnim1);
+
+            #endregion
         }
+
+        
 
         private Pet CreatePet()
         {
@@ -116,10 +134,11 @@ namespace Tomogachi_ESS_Spring2025
             PetType selectedType = typeMenu.ShowAndGetSelection();
 
             if (selectedType == default) return null;
-            
-            PetManager petManager = new PetManager();    
+
+            PetManager petManager = new PetManager();
             return new Pet(name, selectedType, petManager);
         }
+    
 
     }
 

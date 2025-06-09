@@ -9,7 +9,7 @@ namespace Tomogachi_ESS_Spring2025
     {   
         public string Name { get; }
         public PetType Type { get; }
-        private int _hunger = 50, _fun = 50, _sleep = 50;
+        private int _hunger = 75, _fun = 75, _sleep = 75;
         private bool _isAlive = true;
         private PetManager _manager;
         public Pet(string name, PetType type, PetManager manager)
@@ -59,7 +59,7 @@ namespace Tomogachi_ESS_Spring2025
             {
                 while (_isAlive = true)
                 {
-                    await Task.Delay(200); // Every 5 seconds, decay stats
+                    await Task.Delay(5000); // 5 seconds
 
                     _hunger = Math.Max(0, _hunger - 1);
                     _fun = Math.Max(0, _fun - 1);
@@ -77,19 +77,21 @@ namespace Tomogachi_ESS_Spring2025
                 _isAlive = false;
                 Console.WriteLine($"{Name} has died.");
                 _manager.Death(this); // Remove from pet list
+                return;
             }
         }
 
-
-
+        //-----------------------------------------------------------------------------------------------
         private void DisplayAsciiEvent(Item item)
         {
+            Game game = new Game();
+            
             if (item.Type == ItemType.Food)
             {
                 Console.WriteLine(Type switch
                 {
                     PetType.Cat => "(=^･ω･^=) munching...",
-                    PetType.Dog => DogFeedingAnim(),
+                    PetType.Dog => "",
                     _ => "*nom nom*"
                 });
             }
@@ -105,30 +107,5 @@ namespace Tomogachi_ESS_Spring2025
         }
 
         public override string ToString() => $"{Name} ({Type})";
-
-        #region Ready Animations
-
-        static async Task DogFeedingAnim()
-        {
-            AsciiDataBase asciiArt = new AsciiDataBase();
-            string dogHappy = asciiArt.GetAsciiArt(PetType.Dog, "Happy");
-            string dogFrame1 = asciiArt.GetAsciiArt(PetType.Dog, "Inbetween");
-            string dogFrame2 = asciiArt.GetAsciiArt(PetType.Dog, "FoodAnim1");
-            string dogFrame3 = asciiArt.GetAsciiArt(PetType.Dog, "FoodAnim2");
-
-            Console.Clear();
-            Console.WriteLine(dogFrame1);
-            Thread.Sleep(600);
-            Console.Clear();
-            Console.WriteLine(dogFrame2);
-            Thread.Sleep(600);
-            Console.Clear();
-            Console.WriteLine(dogFrame3);
-            Thread.Sleep(600);
-            Console.Clear();
-        }
-
-
-        #endregion
     }
 }
