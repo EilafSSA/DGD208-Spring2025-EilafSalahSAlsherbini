@@ -37,7 +37,7 @@ namespace Tomogachi_ESS_Spring2025
             new Item {
                 Name = "Lettuce",
                 Type = ItemType.Food,
-                CompatibleWith = new List<PetType> { PetType.Rabbit, PetType.Fish, PetType.Parrot },
+                CompatibleWith = new List<PetType> { PetType.Fish, PetType.Parrot },
                 AffectedStat = PetStat.Hunger,
                 EffectAmount = 15,
                 Duration = 2.5f  // Takes 2.5 seconds to eat
@@ -45,7 +45,7 @@ namespace Tomogachi_ESS_Spring2025
             new Item {
                 Name = "Lettuce",
                 Type = ItemType.Food,
-                CompatibleWith = new List<PetType> { PetType.Rabbit, PetType.Fish, PetType.Parrot },
+                CompatibleWith = new List<PetType> {  PetType.Fish, PetType.Parrot },
                 AffectedStat = PetStat.Hunger,
                 EffectAmount = 15,
                 Duration = 2.5f  // Takes 2.5 seconds to eat
@@ -57,7 +57,7 @@ namespace Tomogachi_ESS_Spring2025
             new Item {
                 Name = "Ball",
                 Type = ItemType.Toy,
-                CompatibleWith = new List<PetType> { PetType.Dog, PetType.Cat, PetType.Rabbit },
+                CompatibleWith = new List<PetType> { PetType.Dog, PetType.Cat},
                 AffectedStat = PetStat.Fun,
                 EffectAmount = 10,
                 Duration = 2.0f
@@ -75,7 +75,7 @@ namespace Tomogachi_ESS_Spring2025
             new Item { 
                 Name = "Pet Blanket", 
                 Type = ItemType.Toy, 
-                CompatibleWith = new List<PetType> { PetType.Dog, PetType.Cat, PetType.Rabbit }, 
+                CompatibleWith = new List<PetType> { PetType.Dog, PetType.Cat }, 
                 AffectedStat = PetStat.Sleep, 
                 EffectAmount = 20,
                 Duration = 4.0f

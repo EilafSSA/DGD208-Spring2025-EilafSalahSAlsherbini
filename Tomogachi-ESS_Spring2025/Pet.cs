@@ -84,14 +84,16 @@ namespace Tomogachi_ESS_Spring2025
         //-----------------------------------------------------------------------------------------------
         private void DisplayAsciiEvent(Item item)
         {
-            Game game = new Game();
+            Animations anim = new Animations();
             
             if (item.Type == ItemType.Food)
             {
                 Console.WriteLine(Type switch
                 {
-                    PetType.Cat => "(=^･ω･^=) munching...",
-                    PetType.Dog => "",
+                    PetType.Cat => anim.CatFeedingAnim(),
+                    PetType.Dog => anim.DogFeedingAnim(),
+                    PetType.Fish => anim.FishFeedingAnim(),
+                    PetType.Parrot => anim.ParrotFeedingAnim(),
                     _ => "*nom nom*"
                 });
             }

@@ -12,6 +12,5 @@ namespace Tomogachi_ESS_Spring2025
             Cat,
             Parrot,
             Fish,
-            Rabbit
         }
 }
