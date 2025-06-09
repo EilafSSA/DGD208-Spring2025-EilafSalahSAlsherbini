@@ -8,6 +8,7 @@ namespace Tomogachi_ESS_Spring2025
     public enum ItemType
     {
         Food,
-        Toy
+        Toy,
+        Bed
     }
 }

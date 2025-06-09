@@ -38,7 +38,8 @@ namespace Tomogachi_ESS_Spring2025
                 Console.WriteLine($"{Name} can't use {item.Name}.");
                 return;
             }
-
+            
+            Console.Clear();
             Console.WriteLine($"\nUsing {item.Name} on {Name}...");
             DisplayAsciiEvent(item);
             await Task.Delay(TimeSpan.FromSeconds(item.Duration));
@@ -86,6 +87,7 @@ namespace Tomogachi_ESS_Spring2025
         {
             Animations anim = new Animations();
             
+            
             if (item.Type == ItemType.Food)
             {
                 Console.WriteLine(Type switch
@@ -97,13 +99,30 @@ namespace Tomogachi_ESS_Spring2025
                     _ => "*nom nom*"
                 });
             }
-            else if (item.Type == ItemType.Toy)
+
+
+            if (item.Type == ItemType.Toy)
             {
                 Console.WriteLine(Type switch
                 {
-                    PetType.Cat => "ฅ^•ﻌ•^ฅ playing!",
-                    PetType.Dog => "U・ᴥ・U wagging!",
-                    _ => "*having fun*"
+                    PetType.Cat => anim.CatPlay(),
+                    PetType.Dog => anim.DogPlay(),
+                    PetType.Fish => anim.FishPlay(),
+                    PetType.Parrot => anim.ParrotPlay(),
+                    _ => "*Fun! Fun!*"
+                });
+            }
+
+
+            else if (item.Type == ItemType.Bed)
+            {
+                Console.WriteLine(Type switch
+                {
+                    PetType.Cat => anim.CatSleep(),
+                    PetType.Dog => anim.DogSleep(),
+                    PetType.Fish => anim.FishSleep(),
+                    PetType.Parrot => anim.ParrotSleep(),
+                    _ => "*Zzzzz....*"
                 });
             }
         }

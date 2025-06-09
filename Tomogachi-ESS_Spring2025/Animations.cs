@@ -8,9 +8,45 @@ namespace Tomogachi_ESS_Spring2025
 {
     public class Animations
     {
+        AsciiDataBase asciiArt = new AsciiDataBase();
+
+
+#region ---(Sleeping Sprites)---
+        public async Task ParrotSleep()
+        { string ParrotSleep = asciiArt.GetAsciiArt(PetType.Parrot, "Sleeping");
+            Console.WriteLine(ParrotSleep);}
+        public async Task FishSleep()
+        { string FishSleep = asciiArt.GetAsciiArt(PetType.Fish, "Sleeping");
+            Console.WriteLine(FishSleep);}
+        public async Task CatSleep()
+        { string CatSleep = asciiArt.GetAsciiArt(PetType.Cat, "Sleeping");
+            Console.WriteLine(CatSleep);}
+        public async Task DogSleep()
+        { string DogSleep = asciiArt.GetAsciiArt(PetType.Dog, "Sleeping");
+            Console.WriteLine(DogSleep); }
+
+        #endregion
+
+#region ---(Playing Sprites)---
+        public async Task ParrotPlay()
+        { string ParrotPlay = asciiArt.GetAsciiArt(PetType.Parrot, "Playing");
+            Console.WriteLine(ParrotPlay);}
+        public async Task FishPlay()
+        { string FishPlay = asciiArt.GetAsciiArt(PetType.Fish, "Playing");
+            Console.WriteLine(FishPlay);}
+        public async Task CatPlay()
+        { string CatPlay = asciiArt.GetAsciiArt(PetType.Cat, "Playing");
+            Console.WriteLine(CatPlay);}
+        public async Task DogPlay()
+        { string DogPlay = asciiArt.GetAsciiArt(PetType.Dog, "Playing");
+            Console.WriteLine(DogPlay);}
+        
+        #endregion
+
+        #region ---(Feeding Animation)---
+
         public async Task ParrotFeedingAnim()
         {
-            AsciiDataBase asciiArt = new AsciiDataBase();
             string ParrotFrame1 = asciiArt.GetAsciiArt(PetType.Parrot, "Inbetween");
             string ParrotFrame2 = asciiArt.GetAsciiArt(PetType.Parrot, "FoodAnim1");
             string ParrotFrame3 = asciiArt.GetAsciiArt(PetType.Parrot, "FoodAnim2");
@@ -23,12 +59,9 @@ namespace Tomogachi_ESS_Spring2025
             Thread.Sleep(250);
             Console.Clear();
             Console.WriteLine(ParrotFrame3);
-            Thread.Sleep(600);
-            Console.Clear();
         }
         public async Task DogFeedingAnim()
         {
-            AsciiDataBase asciiArt = new AsciiDataBase();
             string dogFrame1 = asciiArt.GetAsciiArt(PetType.Dog, "Inbetween");
             string dogFrame2 = asciiArt.GetAsciiArt(PetType.Dog, "FoodAnim1");
             string dogFrame3 = asciiArt.GetAsciiArt(PetType.Dog, "FoodAnim2");
@@ -41,13 +74,10 @@ namespace Tomogachi_ESS_Spring2025
             Thread.Sleep(300);
             Console.Clear();
             Console.WriteLine(dogFrame3);
-            Thread.Sleep(300);
-            Console.Clear();
         }
 
         public async Task CatFeedingAnim()
         {
-            AsciiDataBase asciiArt = new AsciiDataBase();
             string CatFrame1 = asciiArt.GetAsciiArt(PetType.Cat, "Inbetween");
             string CatFrame2 = asciiArt.GetAsciiArt(PetType.Cat, "FoodAnim1");
             string CatFrame3 = asciiArt.GetAsciiArt(PetType.Cat, "FoodAnim2");
@@ -60,13 +90,10 @@ namespace Tomogachi_ESS_Spring2025
             Thread.Sleep(250);
             Console.Clear();
             Console.WriteLine(CatFrame3);
-            Thread.Sleep(600);
-            Console.Clear();
         }
 
         public async Task FishFeedingAnim()
         {
-            AsciiDataBase asciiArt = new AsciiDataBase();
             string FishFrame1 = asciiArt.GetAsciiArt(PetType.Fish, "Inbetween");
             string FishFrame2 = asciiArt.GetAsciiArt(PetType.Fish, "FoodAnim1");
             string FishFrame3 = asciiArt.GetAsciiArt(PetType.Fish, "FoodAnim2");
@@ -79,8 +106,7 @@ namespace Tomogachi_ESS_Spring2025
             Thread.Sleep(250);
             Console.Clear();
             Console.WriteLine(FishFrame3);
-            Thread.Sleep(600);
-            Console.Clear();
         }
+        #endregion
     }
 }
